@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press It!</title>
+    <style>
+        /* Make the body take up the full screen */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Make the GIF take up the entire screen */
+        #Gif {
+            display: none; /* Initially hidden */
+            position: fixed; /* Fixed positioning to cover the entire screen */
+            top: 0;
+            left: 0;
+            width: 100%;  /* Make it 100% of the screen width */
+            height: 100%; /* Make it 100% of the screen height */
+            object-fit: cover; /* Ensure the GIF scales correctly */
+        }
+
+        /* Style for the button */
+        button {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 100; /* Make sure the button is above the GIF */
+        }
+    </style>
+</head>
+<body>
+    <h1>Press the Button to See!</h1>
+    <!-- Button to trigger the action -->
+    <button onclick="showGifAndPlaySound()">Press It</button>
+
+    <!-- Initially hidden GIF -->
+    <img id="Gif" src="/media/overwatch.gif" alt="Gif">
+
+    <!-- Audio element -->
+    <audio id="Sound" src="/media/earrape.mp3"></audio>
+
+    <script>
+        // Function to display GIF and play sound
+        function showGifAndPlaySound() {
+            var gif = document.getElementById("Gif");
+            var audio = document.getElementById("Sound");
+
+            // Show the GIF
+            gif.style.display = "block";
+
+            // Play the sound
+            audio.play();
+        }
+    </script>
+</body>
+</html>
